@@ -1,0 +1,60 @@
+{
+  "manifest_version": 3,
+  "name": "Nephrite Jade",
+  "version": "0.1",
+  "description": "A calm, jade-inspired theme for Thunderbird. Jade flavor of the Nephrite palette.",
+  "homepage_url": "https://getnephrite.dev",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "nephrite-jade-thunderbird@getnephrite.dev",
+      "strict_min_version": "128.0"
+    }
+  },
+  "theme": {
+    "colors": {
+      "frame": "#0e2419",
+      "frame_inactive": "#0b1d13",
+      "tab_selected": "#132e20",
+      "tab_text": "#e7f2eb",
+      "tab_background_text": "#bdccc3",
+      "tab_background_separator": "#2e4639",
+      "tab_line": "#4dbf74",
+      "tab_loading": "#4dbf74",
+      "toolbar": "#132e20",
+      "toolbar_text": "#e7f2eb",
+      "toolbar_bottom_separator": "#0b1d13",
+      "icons": "#bdccc3",
+      "icons_attention": "#4dbf74",
+      "button_background_hover": "#2e4639",
+      "button_background_active": "#3c5346",
+      "toolbar_field": "#20392c",
+      "toolbar_field_text": "#e7f2eb",
+      "toolbar_field_border": "#2e4639",
+      "toolbar_field_focus": "#20392c",
+      "toolbar_field_text_focus": "#e7f2eb",
+      "toolbar_field_border_focus": "#4dbf74",
+      "toolbar_field_highlight": "#4dbf74",
+      "toolbar_field_highlight_text": "#132e20",
+      "popup": "#0e2419",
+      "popup_text": "#e7f2eb",
+      "popup_border": "#20392c",
+      "popup_highlight": "#2e4639",
+      "popup_highlight_text": "#e7f2eb",
+      "sidebar": "#132e20",
+      "sidebar_text": "#e7f2eb",
+      "sidebar_border": "#20392c",
+      "sidebar_highlight": "#2e4639",
+      "sidebar_highlight_text": "#e7f2eb",
+      "sidebar_highlight_border": "#4dbf74"
+    },
+    "properties": {
+      "color_scheme": "dark",
+      "content_color_scheme": "dark"
+    }
+  }
+}

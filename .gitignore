@@ -1,0 +1,7 @@
+node_modules
+.DS_Store
+*.log
+
+# Packages built for addons.thunderbird.net
+*.zip
+*.xpi
