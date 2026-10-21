@@ -36,11 +36,13 @@ Necesita Thunderbird 128 o superior.
 ### Desde un archivo
 
 1. Descarga este repositorio (**Code > Download ZIP**) y descomprímelo. Cada sabor está en su propia carpeta dentro de `themes/`, por ejemplo `themes/Nephrite Forest`.
-2. Comprime el **contenido** de la carpeta del sabor, para que `manifest.json` quede en la raíz del ZIP. En PowerShell:
+2. Comprime el **contenido** de la carpeta del sabor, para que `manifest.json` quede en la raíz del ZIP. Desde la carpeta del repositorio, en una terminal de Windows, macOS o Linux:
 
-   ```powershell
-   Compress-Archive -Path "themes/Nephrite Forest/*" -DestinationPath nephrite-forest.zip
+   ```sh
+   tar -a -cf nephrite-forest.zip -C "themes/Nephrite Forest" manifest.json nephrite.css icons
    ```
+
+   En Windows, usa `tar` en lugar de `Compress-Archive` de PowerShell, que puede guardar las rutas con barras invertidas y los validadores de complementos las rechazan. En macOS o Linux sin soporte para `-a`, entra en la carpeta y ejecuta `zip -r ../../nephrite-forest.zip .`
 
 3. En Thunderbird, abre **Complementos y temas**, haz clic en el engranaje, elige **Instalar complemento desde archivo** y selecciona el ZIP.
 

@@ -36,11 +36,13 @@ Requires Thunderbird 128 or newer.
 ### From a file
 
 1. Download this repository (**Code > Download ZIP**) and unzip it. Each flavor lives in its own folder under `themes/`, for example `themes/Nephrite Forest`.
-2. Zip the **contents** of the flavor's folder, so `manifest.json` sits at the root of the ZIP. In PowerShell:
+2. Zip the **contents** of the flavor's folder, so `manifest.json` sits at the root of the ZIP. From the repository folder, in a terminal on Windows, macOS or Linux:
 
-   ```powershell
-   Compress-Archive -Path "themes/Nephrite Forest/*" -DestinationPath nephrite-forest.zip
+   ```sh
+   tar -a -cf nephrite-forest.zip -C "themes/Nephrite Forest" manifest.json nephrite.css icons
    ```
+
+   On Windows, use `tar` rather than PowerShell's `Compress-Archive`, which can store paths with backslashes that add-on validators reject. On macOS or Linux without `-a` support, `cd` into the folder and run `zip -r ../../nephrite-forest.zip .`
 
 3. In Thunderbird, open **Add-ons and Themes**, click the gear icon, choose **Install Add-on From File** and pick the ZIP.
 
