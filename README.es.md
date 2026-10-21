@@ -44,16 +44,17 @@ Todos los colores vienen de la [paleta Nephrite](https://github.com/Nephrite-the
 
 | Superficie de Thunderbird | Color de la paleta |
 | --- | --- |
-| Marco de la ventana y barra de pestañas | `mantle`, `crust` cuando la ventana está inactiva |
-| Pestaña activa, barras de herramientas, panel de carpetas, lista de mensajes | `base` |
+| Marco de la ventana, barra de pestañas y barra de espacios | `crust` |
+| Pestaña activa, barras de herramientas, cabecera del mensaje, panel de carpetas, lista de mensajes | `mantle` |
+| Tarjetas de mensajes y contenido principal | `base`, con borde `surface0` |
 | Búsqueda y otros campos | `surface0`, con borde `jade` al enfocar |
 | Menús y listas desplegables | `mantle`, `surface1` para la fila resaltada |
-| Carpeta o mensaje seleccionado | `surface1`, con borde `jade` |
+| Acento: carpeta y espacio seleccionados, botones principales, interruptores, foco, enlaces, mensajes nuevos | `jade` |
 | Texto principal | `text` |
-| Pestañas inactivas e íconos | `subtext` |
-| Línea de la pestaña activa, carga, íconos de aviso | `jade` |
+| Pestañas inactivas, íconos y texto secundario | `subtext` |
+| Íconos de carpetas | `jade` bandeja de entrada, `amethyst` borradores, `mint` enviados, `carnelian` archivo, `garnet` spam, `lagoon` bandeja de salida, `citrine` carpetas |
 
-Los menús y el contenido de los mensajes también siguen el modo claro u oscuro del sabor.
+Las claves de tema documentadas de Thunderbird solo llegan al marco, las barras y los árboles. Todo lo demás (la barra de espacios, las tarjetas de mensajes, los íconos de carpetas, los contadores y el acento azul) sale de las variables CSS propias de Thunderbird, que los temas definen con un [theme experiment](https://webextension-api.thunderbird.net/en/mv3/theme.html#theme-experiment). Los menús y el contenido de los mensajes también siguen el modo claro u oscuro del sabor.
 
 ## Desarrollo
 

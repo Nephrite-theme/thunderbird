@@ -44,16 +44,17 @@ Every color comes from the [Nephrite palette](https://github.com/Nephrite-theme/
 
 | Thunderbird surface | Palette color |
 | --- | --- |
-| Window frame and tab strip | `mantle`, `crust` when the window is inactive |
-| Selected tab, toolbars, folder pane, message list | `base` |
+| Window frame, tab strip and spaces bar | `crust` |
+| Selected tab, toolbars, message header, folder pane, message list | `mantle` |
+| Message cards and main content | `base`, with a `surface0` border |
 | Search and other fields | `surface0`, with a `jade` border on focus |
 | Menus and dropdowns | `mantle`, `surface1` for the highlighted row |
-| Selected folder or message | `surface1`, with a `jade` border |
+| Accent: selected folder, selected space, primary buttons, toggles, focus rings, links, new messages | `jade` |
 | Main text | `text` |
-| Inactive tabs and toolbar icons | `subtext` |
-| Selected tab line, loading indicator, attention icons | `jade` |
+| Inactive tabs, toolbar icons, secondary text | `subtext` |
+| Folder icons | `jade` inbox, `amethyst` drafts, `mint` sent, `carnelian` archive, `garnet` spam, `lagoon` outbox, `citrine` folders |
 
-Menus and message content also follow the flavor's light or dark scheme.
+Thunderbird's documented theme keys only reach the frame, toolbars and trees. Everything else (the spaces bar, message cards, folder icons, counters and the blue accent) comes from Thunderbird's own CSS variables, which the themes set through a [theme experiment](https://webextension-api.thunderbird.net/en/mv3/theme.html#theme-experiment). Menus and message content also follow the flavor's light or dark scheme.
 
 ## Development
 
