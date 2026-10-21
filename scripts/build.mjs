@@ -7,25 +7,27 @@ const root = new URL("../", import.meta.url);
 const palette = JSON.parse(readFileSync(new URL("palette.json", root)));
 
 // Thunderbird surfaces mapped to palette roles (see the palette's porting
-// guide). Only keys Thunderbird documents for themes are used.
+// guide). These are the documented theme keys.
 const ROLES = {
 	// Window frame and tabs
-	frame: "mantle",
+	frame: "crust",
 	frame_inactive: "crust",
-	tab_selected: "base",
+	tab_selected: "mantle",
 	tab_text: "text",
 	tab_background_text: "subtext",
 	tab_background_separator: "surface1",
 	tab_line: "jade",
 	tab_loading: "jade",
-	// Toolbars and icons
-	toolbar: "base",
+	// Toolbars and icons; the message header uses the toolbar color too
+	toolbar: "mantle",
 	toolbar_text: "text",
-	toolbar_bottom_separator: "crust",
+	toolbar_top_separator: "crust",
+	toolbar_bottom_separator: "surface0",
+	toolbar_vertical_separator: "surface1",
 	icons: "subtext",
 	icons_attention: "jade",
-	button_background_hover: "surface1",
-	button_background_active: "surface2",
+	button_background_hover: "surface0",
+	button_background_active: "surface1",
 	// Search and other toolbar fields
 	toolbar_field: "surface0",
 	toolbar_field_text: "text",
@@ -38,17 +40,119 @@ const ROLES = {
 	// Menus and dropdowns
 	popup: "mantle",
 	popup_text: "text",
-	popup_border: "surface0",
+	popup_border: "surface1",
 	popup_highlight: "surface1",
 	popup_highlight_text: "text",
-	// Folder pane and message list: Thunderbird calls its trees "sidebar"
-	sidebar: "base",
+	// Folder pane and message list: Thunderbird calls its trees "sidebar".
+	// The highlight is also Thunderbird's accent (--selected-item-color), so
+	// it drives primary buttons, toggles, focus rings and selected cards.
+	sidebar: "mantle",
 	sidebar_text: "text",
 	sidebar_border: "surface0",
-	sidebar_highlight: "surface1",
-	sidebar_highlight_text: "text",
+	sidebar_highlight: "jade",
+	sidebar_highlight_text: "base",
 	sidebar_highlight_border: "jade",
 };
+
+// Everything the documented keys can't reach (the spaces bar, message cards,
+// folder icons, badges, the blue accent) is drawn from Thunderbird's own CSS
+// variables. A theme experiment sets them on the root of every themed
+// document, so they replace the defaults without any extra stylesheet.
+// Variables come from mail/themes/shared/mail in thunderbird-desktop.
+const EXPERIMENT = {
+	// Layout tokens (layout.css): the base every pane is built from
+	"--layout-background-0": "base",
+	"--layout-background-1": "mantle",
+	"--layout-background-2": "surface0",
+	"--layout-background-3": "surface1",
+	"--layout-background-4": "surface2",
+	"--layout-color-0": "text",
+	"--layout-color-1": "text",
+	"--layout-color-2": "subtext",
+	"--layout-color-3": "overlay1",
+	"--layout-border-0": "surface0",
+	"--layout-border-1": "surface1",
+	"--layout-border-2": "surface2",
+	// Design tokens (colors.css) that replace Thunderbird's blue and grays
+	"--color-primary-default": "jade",
+	"--color-primary-hover": "mint",
+	"--color-primary-pressed": "jade",
+	"--color-primary-soft": "surface0",
+	"--color-surface-base": "base",
+	"--color-surface-raised": "surface0",
+	"--color-surface-subtle": "mantle",
+	"--color-surface-lower": "crust",
+	"--color-surface-deep": "surface1",
+	"--color-surface-border": "surface1",
+	"--color-surface-border-intense": "surface2",
+	"--color-text-base": "text",
+	"--color-text-secondary": "subtext",
+	"--color-text-muted": "overlay1",
+	"--color-text-brand": "jade",
+	"--color-text-highlight": "jade",
+	"--color-text-success": "jade",
+	"--color-text-warning": "citrine",
+	"--color-text-critical": "garnet",
+	"--color-accent-blue": "sapphire",
+	"--color-accent-teal": "lagoon",
+	"--color-accent-purple": "amethyst",
+	"--color-accent-orange": "carnelian",
+	"--color-accent-pink": "rhodonite",
+	"--link-color": "jade",
+	"--link-color-hover": "mint",
+	"--link-color-active": "jade",
+	"--button-link-text-color": "jade",
+	"--button-link-active-text-color": "mint",
+	// Spaces bar on the far left (spacesToolbar.css)
+	"--spaces-bg-color": "crust",
+	"--spaces-button-active-bg-color": "jade",
+	"--spaces-button-active-text-color": "base",
+	"--spaces-button-badge-bg-color": "garnet",
+	"--spaces-button-badge-text-color": "base",
+	"--tabs-toolbar-background-color": "crust",
+	// Message list (tree-listbox.css, threadCard.css, threadPane.css)
+	"--tree-view-bg": "mantle",
+	"--tree-pane-background": "mantle",
+	"--tree-card-background": "base",
+	"--tree-card-border": "surface0",
+	"--new-subject-color": "jade",
+	"--new-color": "jade",
+	"--thread-line-color": "overlay0",
+	"--thread-pane-unread-fill": "jade",
+	"--thread-pane-unread-stroke": "jade",
+	"--thread-pane-flag-fill": "carnelian",
+	"--thread-pane-flag-stroke": "carnelian",
+	"--thread-pane-spam-fill": "garnet",
+	"--thread-pane-spam-stroke": "garnet",
+	// Folder pane counters (about3Pane.css)
+	"--folderpane-unread-count-background": "subtext",
+	"--folderpane-unread-count-text": "base",
+	"--folderpane-unread-new-count-background": "jade",
+	"--folderpane-total-count-background": "surface1",
+	"--folderpane-total-count-text": "text",
+	// Folder icons (folderColors.css), one palette accent per folder type
+	"--folder-color-inbox": "jade",
+	"--folder-color-draft": "amethyst",
+	"--folder-color-sent": "mint",
+	"--folder-color-archive": "carnelian",
+	"--folder-color-spam": "garnet",
+	"--folder-color-trash": "subtext",
+	"--folder-color-template": "subtext",
+	"--folder-color-newsletter": "subtext",
+	"--folder-color-rss": "carnelian",
+	"--folder-color-outbox": "lagoon",
+	"--folder-color-folder": "citrine",
+	"--folder-color-folder-filter": "rhodonite",
+	"--folder-color-folder-rss": "carnelian",
+	"--folder-color-warning": "garnet",
+	"--new-folder-color": "jade",
+	// Message header avatars (messageHeader.css)
+	"--recipient-avatar-background-color": "surface1",
+	"--recipient-avatar-color": "subtext",
+};
+
+// Theme experiment keys are plain names, one per CSS variable.
+const experimentKey = (variable) => `nephrite_${variable.slice(2).replaceAll("-", "_")}`;
 
 const ICONS = ["icon16.png", "icon48.png", "icon128.png"];
 
@@ -60,9 +164,13 @@ for (const [key, flavor] of Object.entries(palette.flavors)) {
 		copyFileSync(new URL(`icons/${icon}`, root), new URL(`icons/${icon}`, dir));
 	}
 
-	const colors = Object.fromEntries(
-		Object.entries(ROLES).map(([surface, role]) => [surface, flavor.colors[role]]),
-	);
+	const colors = Object.fromEntries([
+		...Object.entries(ROLES).map(([surface, role]) => [surface, flavor.colors[role]]),
+		...Object.entries(EXPERIMENT).map(([variable, role]) => [
+			experimentKey(variable),
+			flavor.colors[role],
+		]),
+	]);
 	const scheme = flavor.dark ? "dark" : "light";
 
 	const manifest = {
@@ -80,6 +188,11 @@ for (const [key, flavor] of Object.entries(palette.flavors)) {
 				strict_min_version: "128.0",
 			},
 		},
+		theme_experiment: {
+			colors: Object.fromEntries(
+				Object.keys(EXPERIMENT).map((variable) => [experimentKey(variable), variable]),
+			),
+		},
 		theme: {
 			colors,
 			// Menus and message content follow the flavor's lightness.
@@ -93,7 +206,7 @@ for (const [key, flavor] of Object.entries(palette.flavors)) {
 
 // README swatches: only the palette colors this port actually uses, in
 // palette order, so the preview never promises colors the theme skips.
-const used = new Set(Object.values(ROLES));
+const used = new Set([...Object.values(ROLES), ...Object.values(EXPERIMENT)]);
 const usedKeys = [...palette.neutrals, ...palette.accents].filter((k) => used.has(k));
 mkdirSync(new URL("assets/", root), { recursive: true });
 for (const [key, flavor] of Object.entries(palette.flavors)) {

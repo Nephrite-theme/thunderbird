@@ -17,9 +17,9 @@ Un tema sereno, inspirado en el jade, para [Thunderbird](https://www.thunderbird
 
 | Sabor | Colores usados | Para |
 | --- | --- | --- |
-| **Forest** | <img src="assets/forest.svg" alt="Muestras de Forest" width="260"> | Oscuro y profundo, para la noche |
-| **Jade** | <img src="assets/jade.svg" alt="Muestras de Jade" width="260"> | Oscuro con más verde, para jornadas largas |
-| **Mint** | <img src="assets/mint.svg" alt="Muestras de Mint" width="260"> | Claro y ligero, para el día |
+| **Forest** | <img src="assets/forest.svg" alt="Muestras de Forest" width="520"> | Oscuro y profundo, para la noche |
+| **Jade** | <img src="assets/jade.svg" alt="Muestras de Jade" width="520"> | Oscuro con más verde, para jornadas largas |
+| **Mint** | <img src="assets/mint.svg" alt="Muestras de Mint" width="520"> | Claro y ligero, para el día |
 
 ## Instalación
 

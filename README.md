@@ -17,9 +17,9 @@ A calm, jade-inspired theme for [Thunderbird](https://www.thunderbird.net), in t
 
 | Flavor | Colors used | For |
 | --- | --- | --- |
-| **Forest** | <img src="assets/forest.svg" alt="Forest swatches" width="260"> | Deep and dark, for late nights |
-| **Jade** | <img src="assets/jade.svg" alt="Jade swatches" width="260"> | Dark with more green, for long days |
-| **Mint** | <img src="assets/mint.svg" alt="Mint swatches" width="260"> | Light and airy, for daylight |
+| **Forest** | <img src="assets/forest.svg" alt="Forest swatches" width="520"> | Deep and dark, for late nights |
+| **Jade** | <img src="assets/jade.svg" alt="Jade swatches" width="520"> | Dark with more green, for long days |
+| **Mint** | <img src="assets/mint.svg" alt="Mint swatches" width="520"> | Light and airy, for daylight |
 
 ## Install
 
