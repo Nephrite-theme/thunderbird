@@ -21,6 +21,14 @@ Un tema sereno, inspirado en el jade, para [Thunderbird](https://www.thunderbird
 | **Jade** | <img src="assets/jade.svg" alt="Muestras de Jade" width="520"> | Oscuro con más verde, para jornadas largas |
 | **Mint** | <img src="assets/mint.svg" alt="Muestras de Mint" width="520"> | Claro y ligero, para el día |
 
+## Capturas
+
+![Nephrite Forest en la vista de correo](assets/forest-mail.webp)
+
+![Nephrite Jade en la vista de correo](assets/jade-mail.webp)
+
+![Nephrite Mint en la vista de correo](assets/mint-mail.webp)
+
 ## Instalación
 
 Necesita Thunderbird 128 o superior.
