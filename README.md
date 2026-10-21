@@ -73,7 +73,7 @@ node scripts/sync-palette.mjs   # download the latest palette.json
 node scripts/build.mjs          # regenerate the three manifests
 ```
 
-To publish, bump `VERSION` in `scripts/build.mjs`, rebuild, zip each flavor as shown above and upload it at [addons.thunderbird.net/developers](https://addons.thunderbird.net/developers/). Each flavor has a fixed add-on ID (`nephrite-<flavor>-thunderbird@getnephrite.dev`), so updates stay on the same listing. Node 18 or newer, no dependencies.
+To publish, bump `VERSION` in `scripts/build.mjs` (and `MAX_VERSION` when a new Thunderbird release is out, since ATN requires a maximum for theme experiments), rebuild, zip each flavor as shown above and upload it at [addons.thunderbird.net/developers](https://addons.thunderbird.net/developers/). Each flavor has a fixed add-on ID (`nephrite-<flavor>-thunderbird@getnephrite.dev`), so updates stay on the same listing. Node 18 or newer, no dependencies.
 
 ## Contributing
 

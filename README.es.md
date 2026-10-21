@@ -73,7 +73,7 @@ node scripts/sync-palette.mjs   # descarga el palette.json más reciente
 node scripts/build.mjs          # regenera los tres manifiestos
 ```
 
-Para publicar, sube `VERSION` en `scripts/build.mjs`, vuelve a generar, comprime cada sabor como se explica arriba y súbelo en [addons.thunderbird.net/developers](https://addons.thunderbird.net/developers/). Cada sabor tiene un ID fijo (`nephrite-<sabor>-thunderbird@getnephrite.dev`), así que las actualizaciones quedan en la misma ficha. Node 18 o superior, sin dependencias.
+Para publicar, sube `VERSION` en `scripts/build.mjs` (y `MAX_VERSION` cuando salga una versión nueva de Thunderbird, porque ATN exige un máximo para los theme experiments), vuelve a generar, comprime cada sabor como se explica arriba y súbelo en [addons.thunderbird.net/developers](https://addons.thunderbird.net/developers/). Cada sabor tiene un ID fijo (`nephrite-<sabor>-thunderbird@getnephrite.dev`), así que las actualizaciones quedan en la misma ficha. Node 18 o superior, sin dependencias.
 
 ## Contribuir
 

@@ -3,6 +3,9 @@
 import { copyFileSync, mkdirSync, readFileSync, writeFileSync } from "node:fs";
 
 const VERSION = "0.1";
+// Newest Thunderbird the theme is tested against: release 158, beta 159 and
+// nightly 160 as of October 2026.
+const MAX_VERSION = "160.*";
 const root = new URL("../", import.meta.url);
 const palette = JSON.parse(readFileSync(new URL("palette.json", root)));
 
@@ -198,6 +201,9 @@ for (const [key, flavor] of Object.entries(palette.flavors)) {
 				// from the Firefox theme's so the two never collide.
 				id: `nephrite-${key}-thunderbird@getnephrite.dev`,
 				strict_min_version: "128.0",
+				// ATN requires a maximum for theme experiments, since the CSS
+				// variables they use can change. Raise it as new releases ship.
+				strict_max_version: MAX_VERSION,
 			},
 		},
 		theme_experiment: {
