@@ -1,0 +1,55 @@
+/*
+ * Nephrite for Thunderbird
+ * Most colors come from manifest.json, which sets Thunderbird's own CSS
+ * variables on :root. This file only covers the widgets that set their colors
+ * on their own element, where those variables can't reach. It uses the
+ * --nephrite-* variables, so the same file serves every flavor.
+ * Selectors come from calendar/base/themes and mail/themes in
+ * thunderbird-desktop.
+ */
+
+/* Mini calendar in Tasks, Calendar and the Today pane (minimonth.css). */
+calendar-minimonth {
+	--mmMainBackground: var(--nephrite-surface0);
+	--mmMainBorderColor: var(--nephrite-surface1);
+	--mmBoxBackground: var(--nephrite-surface1);
+	--mmBoxBorderColor: var(--nephrite-surface1);
+	--mmBoxItemColor: var(--nephrite-surface2);
+	--mmDayColor: var(--nephrite-text);
+	--mmDayOtherColor: var(--nephrite-overlay0);
+	--mmDayWeekColor: var(--nephrite-overlay1);
+	--mmDayTodayColor: var(--nephrite-text);
+	--mmDayTodayBackground: color-mix(in srgb, var(--nephrite-jade) 20%, transparent);
+	--mmDayTodayBorderColor: var(--nephrite-jade);
+}
+
+.button.minimonth-nav-btn:is(:hover, :active),
+.button.minimonth-nav-btn:enabled:is(:hover, :active) {
+	background-color: var(--nephrite-surface2);
+}
+
+/* Calendar list: the "Enable" pill uses a fixed blue. */
+#calendar-list > li > button.calendar-enable-button {
+	color: var(--nephrite-base) !important;
+	background: var(--nephrite-subtext);
+}
+
+#calendar-list > li > button.calendar-enable-button:is(:hover, :focus, :active) {
+	background: var(--nephrite-text);
+}
+
+#calendar-list > li[calendar-disabled]:not(.selected) > .calendar-name {
+	color: var(--nephrite-overlay1);
+}
+
+/* Text on the selected calendar stays readable on the jade highlight. */
+#calendar-list > li.selected > .calendar-name {
+	color: var(--sidebar-highlight-text-color);
+}
+
+/* Status bar: themes paint it with a fixed dark gray. */
+:root[lwtheme] #status-bar {
+	background-color: var(--nephrite-crust);
+	color: var(--nephrite-subtext);
+	border-block-start-color: var(--nephrite-surface0);
+}

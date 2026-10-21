@@ -151,8 +151,19 @@ const EXPERIMENT = {
 	"--recipient-avatar-color": "subtext",
 };
 
+// The whole palette as --nephrite-<role>, for theme/nephrite.css.
+for (const role of [...palette.neutrals, ...palette.accents]) {
+	EXPERIMENT[`--nephrite-${role}`] = role;
+}
+
 // Theme experiment keys are plain names, one per CSS variable.
-const experimentKey = (variable) => `nephrite_${variable.slice(2).replaceAll("-", "_")}`;
+const experimentKey = (variable) =>
+	`nephrite_${variable.slice(2).replace(/^nephrite-/, "").replaceAll("-", "_")}`;
+
+// A few widgets set their colors on their own element instead of :root, so
+// the variables above can't reach them. This stylesheet covers those, using
+// the --nephrite-* variables, so one file serves every flavor.
+const STYLESHEET = "nephrite.css";
 
 const ICONS = ["icon16.png", "icon48.png", "icon128.png"];
 
@@ -163,6 +174,7 @@ for (const [key, flavor] of Object.entries(palette.flavors)) {
 	for (const icon of ICONS) {
 		copyFileSync(new URL(`icons/${icon}`, root), new URL(`icons/${icon}`, dir));
 	}
+	copyFileSync(new URL(`theme/${STYLESHEET}`, root), new URL(STYLESHEET, dir));
 
 	const colors = Object.fromEntries([
 		...Object.entries(ROLES).map(([surface, role]) => [surface, flavor.colors[role]]),
@@ -189,6 +201,7 @@ for (const [key, flavor] of Object.entries(palette.flavors)) {
 			},
 		},
 		theme_experiment: {
+			stylesheet: STYLESHEET,
 			colors: Object.fromEntries(
 				Object.keys(EXPERIMENT).map((variable) => [experimentKey(variable), variable]),
 			),

@@ -58,7 +58,7 @@ Las claves de tema documentadas de Thunderbird solo llegan al marco, las barras 
 
 ## Desarrollo
 
-Los manifiestos de `themes/` se generan, así que no los edites a mano. Para aplicar cambios de la paleta:
+Los manifiestos de `themes/` se generan, así que no los edites a mano. Los pocos elementos que el manifiesto no alcanza, como el minicalendario, se estilizan en `theme/nephrite.css`, que el build copia en cada sabor. Para aplicar cambios de la paleta:
 
 ```sh
 node scripts/sync-palette.mjs   # descarga el palette.json más reciente

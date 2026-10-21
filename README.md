@@ -58,7 +58,7 @@ Thunderbird's documented theme keys only reach the frame, toolbars and trees. Ev
 
 ## Development
 
-The manifests in `themes/` are generated, so don't edit them by hand. To pick up palette changes:
+The manifests in `themes/` are generated, so don't edit them by hand. The few widgets that the manifest can't reach, like the mini calendar, are styled in `theme/nephrite.css`, which the build copies into each flavor. To pick up palette changes:
 
 ```sh
 node scripts/sync-palette.mjs   # download the latest palette.json

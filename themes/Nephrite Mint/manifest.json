@@ -16,6 +16,7 @@
     }
   },
   "theme_experiment": {
+    "stylesheet": "nephrite.css",
     "colors": {
       "nephrite_layout_background_0": "--layout-background-0",
       "nephrite_layout_background_1": "--layout-background-1",
@@ -98,7 +99,26 @@
       "nephrite_folder_color_warning": "--folder-color-warning",
       "nephrite_new_folder_color": "--new-folder-color",
       "nephrite_recipient_avatar_background_color": "--recipient-avatar-background-color",
-      "nephrite_recipient_avatar_color": "--recipient-avatar-color"
+      "nephrite_recipient_avatar_color": "--recipient-avatar-color",
+      "nephrite_crust": "--nephrite-crust",
+      "nephrite_mantle": "--nephrite-mantle",
+      "nephrite_base": "--nephrite-base",
+      "nephrite_surface0": "--nephrite-surface0",
+      "nephrite_surface1": "--nephrite-surface1",
+      "nephrite_surface2": "--nephrite-surface2",
+      "nephrite_overlay0": "--nephrite-overlay0",
+      "nephrite_overlay1": "--nephrite-overlay1",
+      "nephrite_subtext": "--nephrite-subtext",
+      "nephrite_text": "--nephrite-text",
+      "nephrite_garnet": "--nephrite-garnet",
+      "nephrite_carnelian": "--nephrite-carnelian",
+      "nephrite_citrine": "--nephrite-citrine",
+      "nephrite_jade": "--nephrite-jade",
+      "nephrite_mint": "--nephrite-mint",
+      "nephrite_lagoon": "--nephrite-lagoon",
+      "nephrite_sapphire": "--nephrite-sapphire",
+      "nephrite_amethyst": "--nephrite-amethyst",
+      "nephrite_rhodonite": "--nephrite-rhodonite"
     }
   },
   "theme": {
@@ -220,7 +240,26 @@
       "nephrite_folder_color_warning": "#ad4b4b",
       "nephrite_new_folder_color": "#048149",
       "nephrite_recipient_avatar_background_color": "#cbe1d4",
-      "nephrite_recipient_avatar_color": "#3f5247"
+      "nephrite_recipient_avatar_color": "#3f5247",
+      "nephrite_crust": "#c7ded1",
+      "nephrite_mantle": "#d7eadf",
+      "nephrite_base": "#edfbf3",
+      "nephrite_surface0": "#daeee2",
+      "nephrite_surface1": "#cbe1d4",
+      "nephrite_surface2": "#bdd5c7",
+      "nephrite_overlay0": "#83988c",
+      "nephrite_overlay1": "#607268",
+      "nephrite_subtext": "#3f5247",
+      "nephrite_text": "#192e23",
+      "nephrite_garnet": "#ad4b4b",
+      "nephrite_carnelian": "#a85514",
+      "nephrite_citrine": "#866c02",
+      "nephrite_jade": "#048149",
+      "nephrite_mint": "#037e65",
+      "nephrite_lagoon": "#017b80",
+      "nephrite_sapphire": "#2672b7",
+      "nephrite_amethyst": "#8058ab",
+      "nephrite_rhodonite": "#a54a77"
     },
     "properties": {
       "color_scheme": "light",
